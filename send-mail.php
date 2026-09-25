@@ -20,7 +20,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL))  exit('Please enter a valid emai
 if (preg_match('/[\r\n]/', $name . $email))      exit('Invalid input detected.');
 
 // Build email
-$to       = 'medvizen.lifesciences@gmail.com';
+$to       = 'mukund.rayapureddi@gmail.com';
 $siteName = 'Medvizen Life Science';
 $subject  = "New Enquiry from {$name}" . ($organization ? " ({$organization})" : '');
 
