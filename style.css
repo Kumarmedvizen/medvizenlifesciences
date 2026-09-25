@@ -538,8 +538,20 @@ color: #23445c;
 @media (max-width: 980px) {
   .navlinks {
     display: none;
+       flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    padding: 20px;
+    gap: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    z-index: 1000;
   }
-
+  .navlinks.open {
+    display: flex;          /* ← critical */
+  }
   .menu {
     display: block;
   }
@@ -613,14 +625,23 @@ color: #23445c;
   }
 
   .hero h1 {
-    font-size: 42px;
+            font-size: 34px;
+        line-height: 1.3;
   }
-
+    .value h3, .area h3, .product h3, .step h3, .why-item h3{
+         font-size: 1.15rem;
+    }
   .hero p,
   .section-head p {
     font-size: 16px;
   }
+}
+.eyebrow, .kicker {
 
+    font-size: 1.25rem;
+    text-transform: capitalize;
+ 
+}
   .values,
   .areas,
   .products,
