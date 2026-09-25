@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('AOS available:', !!window.AOS);
+  // ---------- AOS ----------
   if (window.AOS) {
     AOS.init({
       duration: 1000,
@@ -8,71 +8,74 @@ document.addEventListener('DOMContentLoaded', () => {
       delay: 0,
       easing: 'ease-in-out-quad'
     });
-    console.log('AOS initialized');
     AOS.refresh();
-  } else {
-    console.warn('AOS library did not load');
   }
 
-  const form = document.getElementById('contactForm');
-
-  if (form) {
-    form.addEventListener('submit', (event) => {
-      event.preventDefault();
-      alert('Thank you. Please connect this form to your official email/CRM before launch.');
-      form.reset();
-    });
-  }
-
+  // ---------- Mobile menu ----------
   const menuButton = document.querySelector('.menu');
-  const navLinks = document.querySelector('.navlinks');
-
+  const navLinks   = document.querySelector('.navlinks');
   if (menuButton && navLinks) {
-    menuButton.addEventListener('click', () => {
+    menuButton.addEventListener('click', (e) => {
+      e.stopPropagation();
       navLinks.classList.toggle('open');
+      const expanded = navLinks.classList.contains('open');
+      menuButton.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    });
+
+    // Close menu when a link is clicked
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!navLinks.contains(e.target) && !menuButton.contains(e.target)) {
+        navLinks.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+      }
     });
   }
-});
 
-document.addEventListener('DOMContentLoaded', () => {
+  // ---------- Contact form ----------
   const form = document.getElementById('contactForm');
   if (!form) return;
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Grab fields by order: 0=Name, 1=Organization, 2=Email, 3=Phone, 4=Message
-    const inputs = form.querySelectorAll('input, textarea');
-    const name         = inputs[0]?.value.trim() || '';
-    const organization = inputs[1]?.value.trim() || '';
-    const email        = inputs[2]?.value.trim() || '';
-    const phone        = inputs[3]?.value.trim() || '';
-    const message      = inputs[4]?.value.trim() || '';
+    const name    = form.querySelector('[name="name"]')?.value.trim()         || '';
+    const email   = form.querySelector('[name="email"]')?.value.trim()        || '';
+    const btn     = form.querySelector('button[type="submit"]');
+    const original = btn ? btn.textContent : '';
 
-    // Basic client-side validation
+    // Client-side validation
     if (!name)  return alert('Please enter your name.');
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return alert('Please enter a valid email.');
 
-    const btn = form.querySelector('button[type="submit"]');
-    const original = btn.textContent;
-    btn.disabled = true;
-    btn.textContent = 'Sending…';
+    if (btn) {
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+    }
 
     try {
-      const body = new URLSearchParams({ name, organization, email, phone, message });
-      const res  = await fetch('send-mail.php', {
+      const res  = await fetch(form.action || 'send-mail.php', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body
+        body: new FormData(form)
       });
       const text = await res.text();
       alert(text);
       if (res.ok) form.reset();
-    } catch {
-      alert('Network error. Please try again.');
+    } catch (err) {
+      console.error(err);
+      alert('Network error. Please try again or email medvizen.lifesciences@gmail.com directly.');
     } finally {
-      btn.disabled = false;
-      btn.textContent = original;
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = original;
+      }
     }
   });
 });
