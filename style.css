@@ -41,6 +41,8 @@ img {
   padding: 0 14px;
 }
 
+/* ---------------- Header / Nav ---------------- */
+
 .top {
   position: sticky;
   top: 0;
@@ -56,11 +58,7 @@ img {
   align-items: center;
   justify-content: space-between;
 }
-.product-body p{
-    font-size: 1rem !important;
-    min-height: 100px;
-    text-align: left;
-}
+
 .logo {
   height: 55px;
   width: auto;
@@ -74,11 +72,11 @@ img {
 }
 
 .navlinks a {
-color: #23445c;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 600;
-    font-family: "Merriweather", serif;
+  color: #23445c;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: "Merriweather", serif;
 }
 
 .menu {
@@ -91,6 +89,8 @@ color: #23445c;
   height: 42px;
   cursor: pointer;
 }
+
+/* ---------------- Buttons ---------------- */
 
 .btn {
   display: inline-flex;
@@ -117,6 +117,8 @@ color: #23445c;
   background: #fff;
 }
 
+/* ---------------- Hero ---------------- */
+
 .hero {
   background: radial-gradient(circle at 80% 30%, #e8f8ed 0, #eef7fb 28%, #fff 65%);
   padding: 82px 0 74px;
@@ -132,18 +134,20 @@ color: #23445c;
 
 .eyebrow,
 .kicker {
-    color: var(--navy);
-    font-weight: 800;
-    letter-spacing: 0.13em;
-    font-size: 1.75rem;
-    text-transform: capitalize;
-    font-family: "Merriweather", serif;
+  color: var(--navy);
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  font-size: 1.75rem;
+  text-transform: capitalize;
+  font-family: "Merriweather", serif;
 }
-.kicker span{
-    color: var(--green);}
+
+.kicker span {
+  color: var(--green);
+}
 
 .hero h1 {
-   font-family: "Merriweather", serif;
+  font-family: "Merriweather", serif;
   font-size: clamp(42px, 6vw, 70px);
   line-height: 1.04;
   margin: 12px 0 22px;
@@ -192,7 +196,7 @@ color: #23445c;
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));
 }
 
 .hero-art {
@@ -222,6 +226,8 @@ color: #23445c;
   color: rgba(255, 255, 255, 0.95);
   font-size: 16px;
 }
+
+/* ---------------- Sections ---------------- */
 
 .section {
   padding: 90px 0;
@@ -263,9 +269,6 @@ color: #23445c;
   grid-template-columns: 1.02fr 1.18fr;
   gap: 28px;
   align-items: center;
-}
-
-.about-image {
 }
 
 .about-image img {
@@ -314,6 +317,8 @@ color: #23445c;
   margin-bottom: 26px;
 }
 
+/* ---------------- Cards ---------------- */
+
 .panel,
 .value,
 .area,
@@ -355,6 +360,8 @@ color: #23445c;
   font-size: 22px;
 }
 
+/* ---------------- Grids ---------------- */
+
 .values,
 .areas,
 .products,
@@ -390,11 +397,11 @@ color: #23445c;
 .product h3,
 .step h3,
 .why-item h3 {
-    color: var(--navy);
-    margin: 0 0 8px;
-    font-size: 1.5rem;
-    letter-spacing: 0.02em;
-    font-family: "Merriweather", serif;
+  color: var(--navy);
+  margin: 0 0 8px;
+  font-size: 1.5rem;
+  letter-spacing: 0.02em;
+  font-family: "Merriweather", serif;
 }
 
 .areas {
@@ -406,13 +413,15 @@ color: #23445c;
 }
 
 .area-icon {
-    display: grid;
-    place-items: flex-start;
-    border-radius: 16px;
-    font-size: 3rem;
-    margin-bottom: 5px;
-    box-shadow: none;
+  display: grid;
+  place-items: flex-start;
+  border-radius: 16px;
+  font-size: 3rem;
+  margin-bottom: 5px;
+  box-shadow: none;
 }
+
+/* ---------------- Products ---------------- */
 
 .portfolio-img {
   width: 100%;
@@ -439,6 +448,12 @@ color: #23445c;
   padding: 22px 20px 24px;
 }
 
+.product-body p {
+  font-size: 1rem !important;
+  min-height: 100px;
+  text-align: left;
+}
+
 .tag {
   display: inline-block;
   font-size: 11px;
@@ -457,6 +472,8 @@ color: #23445c;
   font-size: 24px;
 }
 
+/* ---------------- Steps ---------------- */
+
 .steps {
   grid-template-columns: repeat(5, minmax(0, 1fr));
 }
@@ -473,6 +490,8 @@ color: #23445c;
   margin-bottom: 12px;
 }
 
+/* ---------------- Why ---------------- */
+
 .why {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -480,6 +499,8 @@ color: #23445c;
 .why-item {
   padding: 24px 20px;
 }
+
+/* ---------------- CTA ---------------- */
 
 .cta {
   background: linear-gradient(135deg, #0e5a96, #69b92f);
@@ -496,6 +517,8 @@ color: #23445c;
 .cta .section-head p {
   opacity: 0.92;
 }
+
+/* ---------------- Form ---------------- */
 
 .form {
   display: grid;
@@ -518,6 +541,8 @@ color: #23445c;
   resize: vertical;
 }
 
+/* ---------------- Footer ---------------- */
+
 .footer {
   background: #f7fafb;
   border-top: 1px solid var(--line);
@@ -535,29 +560,13 @@ color: #23445c;
   height: 42px;
 }
 
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
 @media (max-width: 980px) {
   .navlinks {
     display: none;
-       flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: #ffffff;
-    padding: 20px;
-    gap: 14px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-    z-index: 1000;
-  }
-  .navlinks.open {
-    display: flex;          /* ← critical */
-  }
-  .menu {
-    display: block;
-  }
-
-  .navlinks.open {
-    display: flex;
     flex-direction: column;
     align-items: flex-start;
     position: absolute;
@@ -565,9 +574,19 @@ color: #23445c;
     right: 24px;
     background: #fff;
     padding: 18px 20px;
+    gap: 14px;
     border: 1px solid var(--line);
     border-radius: 14px;
     box-shadow: var(--shadow);
+    z-index: 1000;
+  }
+
+  .navlinks.open {
+    display: flex;
+  }
+
+  .menu {
+    display: block;
   }
 
   .hero-grid,
@@ -625,23 +644,29 @@ color: #23445c;
   }
 
   .hero h1 {
-            font-size: 34px;
-        line-height: 1.3;
+    font-size: 34px;
+    line-height: 1.3;
   }
-    .value h3, .area h3, .product h3, .step h3, .why-item h3{
-         font-size: 1.15rem;
-    }
+
+  .value h3,
+  .area h3,
+  .product h3,
+  .step h3,
+  .why-item h3 {
+    font-size: 1.15rem;
+  }
+
   .hero p,
   .section-head p {
     font-size: 16px;
   }
-}
-.eyebrow, .kicker {
 
+  .eyebrow,
+  .kicker {
     font-size: 1.25rem;
     text-transform: capitalize;
- 
-}
+  }
+
   .values,
   .areas,
   .products,
