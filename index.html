@@ -455,7 +455,14 @@
               <p><strong>Phone</strong><br><a href="tel:+919490292269">+91 94902 92269</a></p>
             </div>
             <div class="panel" data-aos="fade-left">
-              <form class="form" id="contactForm"><input placeholder="Name" required><input placeholder="Organization / Hospital"><input type="email" placeholder="Email" required><input placeholder="Phone"><textarea placeholder="How can we help?"></textarea><button class="btn primary" type="submit">Send Enquiry</button></form>
+             <form class="form" id="contactForm" method="POST" action="send-mail.php">
+  <input type="text"  placeholder="Name" name="name" required>
+  <input type="text"  placeholder="Organization / Hospital" name="organization">
+  <input type="email" placeholder="Email" name="email" required>
+  <input type="tel"   placeholder="Phone" name="phone">
+  <textarea           placeholder="How can we help?" name="message"></textarea>
+  <button class="btn primary" type="submit">Send Enquiry</button>
+</form>
             </div>
           </div>
         </div>
