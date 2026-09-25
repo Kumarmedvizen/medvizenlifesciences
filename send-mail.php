@@ -1,6 +1,4 @@
 <?php
-// Medvizen Life Science — Contact Form Handler
-
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
     exit('Method Not Allowed');
@@ -14,21 +12,19 @@ $email        = clean($_POST['email']        ?? '');
 $phone        = clean($_POST['phone']        ?? '');
 $message      = clean($_POST['message']      ?? '');
 
-// Validate
-if ($name === '')                                exit('Please enter your name.');
-if (!filter_var($email, FILTER_VALIDATE_EMAIL))  exit('Please enter a valid email.');
-if (preg_match('/[\r\n]/', $name . $email))      exit('Invalid input detected.');
+if ($name === '')                               exit('Please enter your name.');
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) exit('Please enter a valid email.');
+if (preg_match('/[\r\n]/', $name . $email))     exit('Invalid input.');
 
-// Build email
 $to       = 'mukund.rayapureddi@gmail.com';
 $siteName = 'Medvizen Life Science';
 $subject  = "New Enquiry from {$name}" . ($organization ? " ({$organization})" : '');
 
 $body  = "New enquiry from the Medvizen website\n\n";
 $body .= "Name:         {$name}\n";
-$body .= "Organization: " . ($organization ?: '—') . "\n";
+$body .= "Organization: " . ($organization ?: '-') . "\n";
 $body .= "Email:        {$email}\n";
-$body .= "Phone:        " . ($phone ?: '—') . "\n";
+$body .= "Phone:        " . ($phone ?: '-') . "\n";
 $body .= "----------------------------------\n";
 $body .= "Message:\n{$message}\n";
 $body .= "----------------------------------\n";
@@ -47,5 +43,5 @@ $sent = @mail(
 
 header('Content-Type: text/plain; charset=UTF-8');
 echo $sent
-    ? 'Thank you — your enquiry has been sent. We will contact you shortly.'
+    ? 'Thank you - your enquiry has been sent. We will contact you shortly.'
     : 'Sorry, your message could not be sent. Please email medvizen.lifesciences@gmail.com directly.';
